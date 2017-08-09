@@ -10,6 +10,7 @@ namespace WPFMVVMNavigation.Common
     {
         void GoForward();
         void GoBack();
-        bool Navigate(string page);
+        bool Navigate(string page, object parameter = null);
+        bool Navigate<T>(object parameter = null);
     }
 }

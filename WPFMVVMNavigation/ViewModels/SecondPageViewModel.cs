@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WPFMVVMNavigation.Common;
+using WPFMVVMNavigation.Views;
 
 namespace WPFMVVMNavigation.ViewModels
 {
@@ -16,7 +17,7 @@ namespace WPFMVVMNavigation.ViewModels
 
         public ICommand GoFirstPageCommand
         {
-            get => new RelayCommand(() => navigationService.Navigate("FirstPageView"));
+            get => new RelayCommand(() => navigationService.Navigate<FirstPageView>());
         }
     }
 }

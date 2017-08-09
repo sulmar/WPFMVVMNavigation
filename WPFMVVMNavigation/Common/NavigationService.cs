@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace WPFMVVMNavigation.Common
@@ -27,13 +24,12 @@ namespace WPFMVVMNavigation.Common
             return Navigate(type, parameter);
         }
 
-        public bool Navigate(string page)
+        public bool Navigate(string page, object parameter = null)
         {
             var type = Assembly.GetExecutingAssembly().GetTypes().SingleOrDefault(a => a.Name.Equals(page));
             if (type == null) return false;
 
-            var src = Activator.CreateInstance(type);
-            return frame.Navigate(src);
+            return Navigate(type, parameter);
         }
 
         public bool Navigate(Type source, object parameter = null)
