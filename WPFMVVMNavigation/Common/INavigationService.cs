@@ -13,8 +13,6 @@ namespace WPFMVVMNavigation.Common
         bool Navigate(string page, object parameter = null);
         bool Navigate<T>(object parameter = null);
 
-        T GetParameter<T>();
-
         object Parameter { get; }
     }
 }

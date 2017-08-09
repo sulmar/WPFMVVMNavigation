@@ -14,15 +14,6 @@ namespace WPFMVVMNavigation.Common
         public NavigationService(Frame frame)
         {
             this.frame = frame;
-
-            this.frame.Navigated += Frame_Navigated;
-        }
-
-
-
-        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-            //Parameter = e.ExtraData;
         }
 
         public void GoBack() =>  frame.GoBack();
@@ -48,11 +39,6 @@ namespace WPFMVVMNavigation.Common
             Parameter = parameter;
             var src = Activator.CreateInstance(source);
             return frame.Navigate(src, parameter);
-        }
-
-        public T GetParameter<T>()
-        {
-            return (T)Parameter;
         }
     }
 }

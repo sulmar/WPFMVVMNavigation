@@ -61,7 +61,7 @@
     <Compile Include="Services\ICustomersService.cs" />
     <Compile Include="Services\MockCustomersService.cs" />
     <Compile Include="ViewModelLocator.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\FirstPageViewModel.cs" />
     <Compile Include="ViewModels\SecondPageViewModel.cs" />
     <Compile Include="Views\FirstPageView.xaml.cs">
