@@ -5,16 +5,12 @@ namespace WPFMVVMNavigation.Common
 {
     public class RelayCommand : ICommand
     {
-        private Action execute;
-        private Func<bool> canExecute;
+        private Action<object> execute;
+        private Predicate<object> canExecute;
 
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
+        public event EventHandler CanExecuteChanged;
 
-        public RelayCommand(Action execute, Func<bool> canExecute = null)
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
             this.execute = execute;
             this.canExecute = canExecute;
@@ -28,13 +24,13 @@ namespace WPFMVVMNavigation.Common
             }
             else
             {
-                return canExecute.Invoke();
+                return canExecute(parameter);
             }
         }
 
         public void Execute(object parameter = null)
         {
-            this.execute.Invoke();
+            execute(parameter);
         }
     }
 }
