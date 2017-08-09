@@ -10,7 +10,7 @@ using WPFMVVMNavigation.Views;
 
 namespace WPFMVVMNavigation.ViewModels
 {
-    public class SecondPageViewModel : BaseViewModel
+    public class SecondPageViewModel : ViewModelBase
     {
         public Customer Customer { get; set; }
 
@@ -21,7 +21,7 @@ namespace WPFMVVMNavigation.ViewModels
 
         public ICommand GoFirstPageCommand
         {
-            get => new RelayCommand(() => navigationService.GoBack());
+            get => new RelayCommand(p => navigationService.GoBack());
         }
     }
 }
