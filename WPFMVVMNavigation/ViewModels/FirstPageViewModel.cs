@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WPFMVVMNavigation.Common;
 using WPFMVVMNavigation.Models;
+using WPFMVVMNavigation.Services;
+using WPFMVVMNavigation.Views;
 
 namespace WPFMVVMNavigation.ViewModels
 {
@@ -15,20 +17,25 @@ namespace WPFMVVMNavigation.ViewModels
 
         public Customer SelectedCustomer { get; set; }
 
-        public FirstPageViewModel(INavigationService navigationService) : base(navigationService)
+        private readonly ICustomersService service;
+
+        public FirstPageViewModel(INavigationService navigationService, ICustomersService service) : base(navigationService)
         {
-            Customers = new List<Customer>
-            {
-                new Customer { CustomerId = 1, FirstName = "Marcin" },
-                new Customer { CustomerId = 1, FirstName = "Kasia" },
-                new Customer { CustomerId = 1, FirstName = "Bartek" },
-            };
+            this.service = service;
+
+            Load();
+            
+        }
+
+        public void Load()
+        {
+            Customers = service.Get();
         }
 
 
         public ICommand GoSecondsPageCommand
         {
-            get => new RelayCommand(()=>navigationService.Navigate("SecondPageView", SelectedCustomer));
+            get => new RelayCommand(()=>navigationService.Navigate<SecondPageView>(SelectedCustomer));
         }
     }
 }

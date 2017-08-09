@@ -58,6 +58,8 @@
     <Compile Include="Common\NavigationService.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Services\ICustomersService.cs" />
+    <Compile Include="Services\MockCustomersService.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\FirstPageViewModel.cs" />
