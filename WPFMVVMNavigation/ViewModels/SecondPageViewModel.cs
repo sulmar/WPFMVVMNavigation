@@ -11,8 +11,13 @@ namespace WPFMVVMNavigation.ViewModels
 {
     public class SecondPageViewModel : BaseViewModel
     {
+        public string Message { get; set; }
+
         public SecondPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            //this.Message = navigationService.GetParameter<string>();
+
+            this.Message = (string) navigationService.Parameter;
         }
 
         public ICommand GoFirstPageCommand

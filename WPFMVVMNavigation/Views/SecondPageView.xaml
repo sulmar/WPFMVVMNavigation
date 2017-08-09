@@ -9,6 +9,9 @@
       Title="SecondPageView">
 
     <Grid Background="Blue">
-        <Button Command="{Binding GoFirstPageCommand}" Content="Go back to page 1" Height="30" />
+        <DockPanel>
+            <Label Content="{Binding Message}" />
+            <Button Command="{Binding GoFirstPageCommand}" Content="Go back to page 1" Height="30" />
+        </DockPanel>
     </Grid>
 </Page>

@@ -9,9 +9,20 @@ namespace WPFMVVMNavigation.Common
     {
         private readonly Frame frame;
 
+        public object Parameter { get; private set; }
+
         public NavigationService(Frame frame)
         {
             this.frame = frame;
+
+            this.frame.Navigated += Frame_Navigated;
+        }
+
+
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            //Parameter = e.ExtraData;
         }
 
         public void GoBack() =>  frame.GoBack();
@@ -34,8 +45,14 @@ namespace WPFMVVMNavigation.Common
 
         public bool Navigate(Type source, object parameter = null)
         {
+            Parameter = parameter;
             var src = Activator.CreateInstance(source);
             return frame.Navigate(src, parameter);
+        }
+
+        public T GetParameter<T>()
+        {
+            return (T)Parameter;
         }
     }
 }

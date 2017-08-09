@@ -18,7 +18,7 @@ namespace WPFMVVMNavigation.ViewModels
 
         public ICommand GoSecondsPageCommand
         {
-            get => new RelayCommand(()=>navigationService.Navigate("SecondPageView"));
+            get => new RelayCommand(()=>navigationService.Navigate("SecondPageView", "Hello World!"));
         }
     }
 }
