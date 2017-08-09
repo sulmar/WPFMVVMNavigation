@@ -16,16 +16,12 @@ namespace WPFMVVMNavigation.ViewModels
 
         public SecondPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            //this.Message = navigationService.GetParameter<string>();
-
             this.Customer = navigationService.Parameter as Customer;
-
-
         }
 
         public ICommand GoFirstPageCommand
         {
-            get => new RelayCommand(() => navigationService.Navigate<FirstPageView>());
+            get => new RelayCommand(() => navigationService.GoBack());
         }
     }
 }

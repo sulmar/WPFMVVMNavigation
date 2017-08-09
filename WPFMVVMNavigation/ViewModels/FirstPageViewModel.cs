@@ -13,6 +13,8 @@ namespace WPFMVVMNavigation.ViewModels
     {
         public IList<Customer> Customers { get; set; }
 
+        public Customer SelectedCustomer { get; set; }
+
         public FirstPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Customers = new List<Customer>
@@ -26,7 +28,7 @@ namespace WPFMVVMNavigation.ViewModels
 
         public ICommand GoSecondsPageCommand
         {
-            get => new RelayCommand(()=>navigationService.Navigate("SecondPageView", Customers.First()));
+            get => new RelayCommand(()=>navigationService.Navigate("SecondPageView", SelectedCustomer));
         }
     }
 }

@@ -12,7 +12,29 @@
 
     <Grid>
 
-        <Button Command="{Binding GoSecondsPageCommand}"  Height="30" Content="Go to second page" 
+        <DockPanel>
+
+            <Button DockPanel.Dock="Bottom" Command="{Binding GoSecondsPageCommand}"  Height="30" Content="Go to second page" 
                 />
+            <StackPanel>
+                <ListBox ItemsSource="{Binding Customers}"
+                         SelectedItem="{Binding SelectedCustomer}"
+                         >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding FirstName}" />
+                                <Label Content="{Binding LastName}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </StackPanel>
+
+
+        </DockPanel>
+        
+        
     </Grid>
 </Page>

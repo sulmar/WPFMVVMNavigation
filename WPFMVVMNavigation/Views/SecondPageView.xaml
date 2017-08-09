@@ -10,8 +10,15 @@
 
     <Grid Background="Blue">
         <DockPanel>
-            <Label Content="{Binding Customer.FirstName}" />
-            <Button Command="{Binding GoFirstPageCommand}" Content="Go back to page 1" Height="30" />
+            
+            <Button DockPanel.Dock="Bottom" Command="{Binding GoFirstPageCommand}" Content="Go back to page 1" Height="30" />
+
+            <StackPanel>
+                <TextBox Text="{Binding Customer.FirstName}" />
+                <TextBox Text="{Binding Customer.LastName}" />
+            </StackPanel>
+
+            
         </DockPanel>
     </Grid>
 </Page>
