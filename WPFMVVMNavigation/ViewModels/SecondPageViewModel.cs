@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WPFMVVMNavigation.Common;
+using WPFMVVMNavigation.Models;
 using WPFMVVMNavigation.Views;
 
 namespace WPFMVVMNavigation.ViewModels
 {
     public class SecondPageViewModel : BaseViewModel
     {
-        public string Message { get; set; }
+        public Customer Customer { get; set; }
 
         public SecondPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             //this.Message = navigationService.GetParameter<string>();
 
-            this.Message = (string) navigationService.Parameter;
+            this.Customer = navigationService.Parameter as Customer;
+
+
         }
 
         public ICommand GoFirstPageCommand

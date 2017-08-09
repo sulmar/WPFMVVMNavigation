@@ -57,6 +57,7 @@
     <Compile Include="Common\INavigationService.cs" />
     <Compile Include="Common\NavigationService.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\FirstPageViewModel.cs" />
