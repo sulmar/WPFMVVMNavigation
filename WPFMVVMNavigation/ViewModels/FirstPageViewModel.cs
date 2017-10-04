@@ -37,5 +37,21 @@ namespace WPFMVVMNavigation.ViewModels
         {
             get => new RelayCommand(p=>navigationService.Navigate<SecondPageView>(SelectedCustomer));
         }
+
+        public ICommand AddCustomerCommand
+        {
+            get => new RelayCommand(p => AddCustomer());
+        }
+
+
+        private void AddCustomer()
+        {
+            var customer = new Customer();
+
+            navigationService.Navigate<SecondPageView>(customer);
+
+            Customers.Add(customer);
+        }
+
     }
 }

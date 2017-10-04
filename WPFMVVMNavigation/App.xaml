@@ -4,9 +4,20 @@
              xmlns:local="clr-namespace:WPFMVVMNavigation"
              >
     <Application.Resources>
-        <Style x:Key="MyStyle" TargetType="Button">
-            <Setter Property="Background" Value="Green" />
-        </Style>
-        <local:ViewModelLocator x:Key="ViewModelLocator"/>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="MyStyle" TargetType="Button">
+                <Setter Property="Background" Value="Green" />
+            </Style>
+            <local:ViewModelLocator x:Key="ViewModelLocator"/>
+            
+        </ResourceDictionary>
+
+     
     </Application.Resources>
 </Application>
